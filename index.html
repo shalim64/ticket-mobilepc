@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Ticket MobilePc PRO</title>
+
+<style>
+  body {
+    font-family: monospace;
+    width: 280px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  img {
+    max-width: 120px;
+    margin-bottom: 5px;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px dashed #000;
+    margin: 5px 0;
+  }
+
+  label {
+    display: block;
+    text-align: left;
+    font-size: 12px;
+  }
+
+  input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px dashed #000;
+    margin-bottom: 5px;
+    font-family: monospace;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+  }
+
+  @media print {
+    .btn { display: none; }
+    input { border: none; }
+  }
+</style>
+
+<script>
+  function generarOrden() {
+    let hoy = new Date();
+    let orden = hoy.getFullYear().toString().slice(2) +
+                (hoy.getMonth()+1) +
+                hoy.getDate() +
+                hoy.getHours() +
+                hoy.getMinutes();
+    document.getElementById("orden").value = orden;
+
+    document.getElementById("fecha").value = hoy.toLocaleDateString();
+  }
+
+  window.onload = generarOrden;
+</script>
+
+</head>
+
+<body>
+
+<img src="logo.png">
+
+<hr>
+
+<label>Orden:</label>
+<input type="text" id="orden" readonly>
+
+<label>Fecha:</label>
+<input type="text" id="fecha" readonly>
+
+<hr>
+
+<label>Cliente:</label>
+<input type="text">
+
+<label>Teléfono:</label>
+<input type="text">
+
+<hr>
+
+<label>Equipo:</label>
+<input type="text">
+
+<label>Falla:</label>
+<input type="text">
+
+<label>Estado:</label>
+<input type="text">
+
+<hr>
+
+<label>Diagnóstico:</label>
+<input type="text" placeholder="Q">
+
+<label>Reparación estimada:</label>
+<input type="text" placeholder="Q">
+
+<label>Anticipo:</label>
+<input type="text" placeholder="Q">
+
+<hr>
+
+<label>Firma del cliente:</label>
+<br><br>
+<hr>
+
+<p>No nos hacemos responsables</p>
+<p>por equipos mojados o manipulados</p>
+
+<hr>
+
+<p>¡Gracias por su preferencia!</p>
+
+<!-- QR WhatsApp -->
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://wa.me/50233197052">
+
+<p>WhatsApp: 3319-7052</p>
+
+<button class="btn" onclick="window.print()">🖨️ Imprimir</button>
+
+</body>
+</html>
