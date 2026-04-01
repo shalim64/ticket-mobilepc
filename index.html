@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Ticket MobilePc PRO</title>
+
+<style>
+  body {
+    font-family: monospace;
+    width: 280px;
+    margin: 0 auto;
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  img {
+    max-width: 120px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px dashed #000;
+    margin: 5px 0;
+  }
+
+  label {
+    font-size: 12px;
+  }
+
+  input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px dashed #000;
+    font-family: monospace;
+    margin-bottom: 5px;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 16px;
+  }
+
+  @media print {
+    .btn { display: none; }
+    input { border: none; }
+  }
+</style>
+
+<script>
+  function generarOrden() {
+    let hoy = new Date();
+    let orden = hoy.getFullYear().toString().slice(2) +
+                (hoy.getMonth()+1) +
+                hoy.getDate() +
+                hoy.getHours() +
+                hoy.getMinutes();
+    document.getElementById("orden").value = orden;
+
+    let fecha = hoy.toLocaleDateString();
+    document.getElementById("fecha").value = fecha;
+  }
+
+  window.onload = generarOrden;
+</script>
+
+</head>
+
+<body>
+
+<!-- LOGO (opcional, podés poner ruta o quitar) -->
+<!-- <img src="logo.png"> -->
+
+<h3 class="center">MobilePc</h3>
+<p class="center">Soluciones Tecnológicas</p>
+
+<hr>
+
+<label>Orden:</label>
+<input type="text" id="orden" readonly>
+
+<label>Fecha:</label>
+<input type="text" id="fecha" readonly>
+
+<hr>
+
+<label>Cliente:</label>
+<input type="text">
+
+<label>Teléfono:</label>
+<input type="text">
+
+<hr>
+
+<label>Equipo:</label>
+<input type="text">
+
+<label>Falla:</label>
+<input type="text">
+
+<label>Estado:</label>
+<input type="text" placeholder="Golpes, mojado, etc.">
+
+<hr>
+
+<label>Revisión / Precio:</label>
+<input type="text" placeholder="Q">
+
+<hr>
+
+<p class="center">Condiciones:</p>
+<p class="center">No nos hacemos responsables</p>
+<p class="center">por equipos mojados o manipulados</p>
+
+<hr>
+
+<p class="center">¡Gracias por su preferencia!</p>
+<p class="center">WhatsApp: 3319-7052</p>
+
+<button class="btn" onclick="window.print()">🖨️ Imprimir Ticket</button>
+
+</body>
+</html>
